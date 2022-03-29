@@ -62,7 +62,7 @@ static gboolean gstreamer_bus_call(GstBus *bus, GstMessage *msg, gpointer user_d
 
 GstPipeline *gstreamer_create_pipeline(char *pipelinestr) {
     GError *error = NULL;
-    GstPipeline *pipeline = (GstPipeline*)GST_BIN(gst_parse_launch(pipelinestr, &error));
+    GstPipeline *pipeline = (GstPipeline*)GST_ELEMENT(gst_parse_launch(pipelinestr, &error));
     return pipeline;
 }
 

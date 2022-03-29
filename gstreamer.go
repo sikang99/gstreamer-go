@@ -1,7 +1,7 @@
 package gstreamer
 
 /*
-#cgo pkg-config: gstreamer-1.0 gstreamer-base-1.0 gstreamer-app-1.0 gstreamer-plugins-base-1.0 gstreamer-video-1.0 gstreamer-audio-1.0 gstreamer-plugins-bad-1.0
+#cgo pkg-config: gstreamer-1.0 gstreamer-app-1.0 gstreamer-plugins-base-1.0 gstreamer-plugins-bad-1.0
 #include "gstreamer.h"
 */
 import "C"
@@ -62,11 +62,9 @@ func gbool(b bool) C.gboolean {
 	}
 	return C.gboolean(0)
 }
+
 func gobool(b C.gboolean) bool {
-	if b != 0 {
-		return true
-	}
-	return false
+	return b != 0
 }
 
 type Element struct {
@@ -270,16 +268,16 @@ func ScanPathForPlugins(directory string) {
 func CheckPlugins(plugins []string) error {
 
 	var plugin *C.GstPlugin
-	var registry *C.GstRegistry
+	// var registry *C.GstRegistry
 
-	registry = C.gst_registry_get()
+	registry := C.gst_registry_get()
 
 	for _, pluginstr := range plugins {
 		plugincstr := C.CString(pluginstr)
 		plugin = C.gst_registry_find_plugin(registry, plugincstr)
 		C.free(unsafe.Pointer(plugincstr))
 		if plugin == nil {
-			return fmt.Errorf("Required gstreamer plugin %s not found", pluginstr)
+			return fmt.Errorf("required gstreamer plugin %s not found", pluginstr)
 		}
 	}
 
