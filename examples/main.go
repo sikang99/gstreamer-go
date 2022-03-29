@@ -14,7 +14,6 @@ func main() {
 	}
 
 	filter := pipeline.FindElement("filter")
-
 	if filter == nil {
 		log.Println("pipeline find element error ")
 		return
