@@ -11,6 +11,13 @@ build b:
 run r:
 	./$(PROG) /Users/stoney/coding/media/open/bunny.mp4
 
+clean:
+	rm -f $(PROG)
+
+kill k:
+	pkill $(PROG)
+
+
 git-update gu:
 	cd ..; make gu
 
