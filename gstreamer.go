@@ -144,7 +144,6 @@ func (p *Pipeline) GetAutoFlushBus() bool {
 }
 
 func (p *Pipeline) GetDelay() uint64 {
-
 	delay := C.gstreamer_pipeline_get_delay(p.pipeline)
 	return uint64(delay)
 }
@@ -154,7 +153,6 @@ func (p *Pipeline) SetDelay(delay uint64) {
 }
 
 func (p *Pipeline) GetLatency() uint64 {
-
 	latency := C.gstreamer_pipeline_get_latency(p.pipeline)
 	return uint64(latency)
 }
@@ -267,14 +265,15 @@ func ScanPathForPlugins(directory string) {
 
 func CheckPlugins(plugins []string) error {
 
-	var plugin *C.GstPlugin
+	// var plugin *C.GstPlugin
 	// var registry *C.GstRegistry
 
 	registry := C.gst_registry_get()
+	fmt.Println(registry)
 
 	for _, pluginstr := range plugins {
 		plugincstr := C.CString(pluginstr)
-		plugin = C.gst_registry_find_plugin(registry, plugincstr)
+		plugin := C.gst_registry_find_plugin(registry, plugincstr)
 		C.free(unsafe.Pointer(plugincstr))
 		if plugin == nil {
 			return fmt.Errorf("required gstreamer plugin %s not found", pluginstr)
