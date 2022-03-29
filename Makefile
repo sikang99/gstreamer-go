@@ -2,7 +2,7 @@
 # Makefile for python-study
 #
 .PHONY: usage edit build clean git
-VERSION=0.0.0.2
+VERSION=0.0.0.3
 #----------------------------------------------------------------------------------
 usage:
 	@echo "make [edit|build]"
@@ -28,7 +28,7 @@ git g:
 	@echo "make (git:g) [update|store]"
 git-update gu:
 	git add .
-	git commit -a -m "$(VERSION),$(USER) linting"
+	git commit -a -m "$(VERSION),$(USER) c sample testing"
 	git push
 git-store gs:
 	git config credential.helper store
