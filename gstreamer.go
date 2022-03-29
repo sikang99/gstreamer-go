@@ -188,7 +188,6 @@ func (e *Element) SetCap(cap string) {
 }
 
 func (e *Element) Push(buffer []byte) {
-
 	b := C.CBytes(buffer)
 	defer C.free(unsafe.Pointer(b))
 	C.gstreamer_element_push_buffer(e.element, b, C.int(len(buffer)))
@@ -269,7 +268,9 @@ func CheckPlugins(plugins []string) error {
 	// var registry *C.GstRegistry
 
 	registry := C.gst_registry_get()
-	fmt.Println(registry)
+	if registry == nil {
+		return fmt.Errorf("no gstreamer registry")
+	}
 
 	for _, pluginstr := range plugins {
 		plugincstr := C.CString(pluginstr)
@@ -280,5 +281,18 @@ func CheckPlugins(plugins []string) error {
 		}
 	}
 
+	return nil
+}
+
+func ListPlugins() error {
+	registry := C.gst_registry_get()
+	if registry == nil {
+		return fmt.Errorf("no gstreamer registry")
+	}
+
+	// var plugins *C.GList
+
+	plugins := C.gst_registry_get_plugin_list(registry)
+	fmt.Println(plugins)
 	return nil
 }

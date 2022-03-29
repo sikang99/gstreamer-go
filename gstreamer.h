@@ -52,4 +52,5 @@ void gstreamer_element_push_buffer(GstElement *element, void *buffer,int len);
 void gstreamer_element_push_buffer_timestamp(GstElement *element, void *buffer,int len, guint64 pts);
 void gstreamer_element_pull_buffer(GstElement *element, int elementId);
 
+
 #endif

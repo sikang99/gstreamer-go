@@ -7,9 +7,16 @@ import (
 )
 
 func main() {
+
+	err := gstreamer.ListPlugins()
+	if err != nil {
+		log.Println("list plugin error", err)
+		return
+	}
+
 	plugins := []string{"videotestsrc", "autovideosink"}
 
-	err := gstreamer.CheckPlugins(plugins)
+	err = gstreamer.CheckPlugins(plugins)
 	if err != nil {
 		log.Println("check plugin error", err)
 		return

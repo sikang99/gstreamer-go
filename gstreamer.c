@@ -1,9 +1,4 @@
-
-
 #include "gstreamer.h"
-#include <gst/video/video.h>
-#include <gst/gstcaps.h>
-
 
 
 void gstreamer_init() {
@@ -189,7 +184,6 @@ GstFlowReturn gstreamer_new_sample_handler(GstElement *object, gpointer user_dat
 
 
 GstFlowReturn gstreamer_sink_eos_handler(GstElement *object, gpointer user_data) {
-
     SampleHandlerUserData *s = (SampleHandlerUserData *)user_data;
     goHandleSinkEOS(s->elementId);
     return GST_FLOW_OK; 
@@ -197,7 +191,6 @@ GstFlowReturn gstreamer_sink_eos_handler(GstElement *object, gpointer user_data)
 
 
 void gstreamer_element_pull_buffer(GstElement *element, int elementId) {
-
     SampleHandlerUserData *s = calloc(1, sizeof(SampleHandlerUserData));
     s->element = element;
     s->elementId = elementId;
