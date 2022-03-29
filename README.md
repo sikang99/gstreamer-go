@@ -50,7 +50,6 @@ if filter == nil {
 filter.SetCap("video/x-raw,width=1280,height=720")
 
 pipeline.Start()
-
 ```
 
 
@@ -74,7 +73,6 @@ for {
     time.Sleep(1 * time.Second)
     appsrc.Push(make([]byte, 320*240*3))
 }
-
 ```
 
 push raw rgb data to the pipeline
@@ -108,15 +106,12 @@ now we can get the h264 raw data from the pipeline
 ## Check Plugins does exist
 
 ```go
-	
 plugins := []string{"videotestsrc", "audiotestsrc", "rtp", "curl","x264", "rtmp"}
 
 err := CheckPlugins(plugins)
-
 if err != nil {
     panic(err)
 }
-
 ```
 
 
