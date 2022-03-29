@@ -263,7 +263,6 @@ func ScanPathForPlugins(directory string) {
 }
 
 func CheckPlugins(plugins []string) error {
-
 	// var plugin *C.GstPlugin
 	// var registry *C.GstRegistry
 
