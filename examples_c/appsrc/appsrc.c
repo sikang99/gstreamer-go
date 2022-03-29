@@ -56,7 +56,7 @@ gint main (gint argc, gchar *argv[]) {
   pipeline = gst_pipeline_new ("pipeline");
   appsrc = gst_element_factory_make ("appsrc", "source");
   conv = gst_element_factory_make ("videoconvert", "conv");
-  videosink = gst_element_factory_make ("xvimagesink", "videosink");
+  videosink = gst_element_factory_make ("autovideosink", "videosink");
 
   /* setup */
   g_object_set (G_OBJECT (appsrc), "caps",
