@@ -8,19 +8,19 @@ import (
 
 func main() {
 
-	err := gstreamer.ListPlugins()
-	if err != nil {
-		log.Println("list plugin error", err)
-		return
-	}
+	// err := gstreamer.ListPlugins()
+	// if err != nil {
+	// 	log.Println("list plugin error", err)
+	// 	return
+	// }
 
-	plugins := []string{"videotestsrc", "autovideosink"}
+	// plugins := []string{"videotestsrc", "autovideosink"}
 
-	err = gstreamer.CheckPlugins(plugins)
-	if err != nil {
-		log.Println("check plugin error", err)
-		return
-	}
+	// err = gstreamer.CheckPlugins(plugins)
+	// if err != nil {
+	// 	log.Println("check plugin error", err)
+	// 	return
+	// }
 
 	pipeline, err := gstreamer.New("videotestsrc  ! capsfilter name=filter ! autovideosink")
 	if err != nil {
