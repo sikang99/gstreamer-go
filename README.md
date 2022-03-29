@@ -2,16 +2,16 @@
 gstreamer simple wrap for golang
 
 
-## You can also try https://github.com/notedit/gst
-
 ## Install 
 
 
-Ubuntu or Dedian
+Ubuntu or Debian
 
 ```sh
 apt-get install pkg-config
-apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-ugly gstreamer1.0-libav
+apt-get install libgstreamer1.0-dev 
+apt-get install libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-ugly 
+apt-get install gstreamer1.0-libav
 ```
 
 Mac os
@@ -22,6 +22,7 @@ brew install gst-plugins-base
 brew install gst-plugins-good
 brew install gst-plugins-bad
 brew install gst-plugins-ugly
+brew install gst-libav
 ```
 
 Then

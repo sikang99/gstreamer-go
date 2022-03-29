@@ -7,6 +7,14 @@ import (
 )
 
 func main() {
+	plugins := []string{"videotestsrc", "audiotestsrc"}
+
+	err := CheckPlugins(plugins)
+	if err != nil {
+		log.Println("check plugin", err)
+		return
+	}
+
 	pipeline, err := gstreamer.New("videotestsrc  ! capsfilter name=filter ! autovideosink")
 	if err != nil {
 		log.Println("pipeline create error", err)
