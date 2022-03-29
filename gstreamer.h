@@ -53,4 +53,4 @@ void gstreamer_element_push_buffer_timestamp(GstElement *element, void *buffer,i
 void gstreamer_element_pull_buffer(GstElement *element, int elementId);
 
 
-#endif
+#endif // GST_H
