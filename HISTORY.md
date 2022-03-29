@@ -1,6 +1,7 @@
 ## Change History
 
 - 2022/03/29
+    - solve `export GST_PLUGIN_PATH=/usr/local/lib/gstreamer-1.0` for runtime not found error
     - gstreamer sample source of [helloworld.c](https://github.com/GStreamer/gstreamer/tree/master/tests/examples/helloworld) does not also work.
 
 - 2022/03/29
