@@ -28,7 +28,7 @@ git g:
 	@echo "make (git:g) [update|store]"
 git-update gu:
 	git add .
-	git commit -a -m "$(VERSION),$(USER) change defrcated memdup() to memdup2()"
+	git commit -a -m "$(VERSION),$(USER) linting"
 	git push
 git-store gs:
 	git config credential.helper store
